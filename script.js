@@ -61,9 +61,16 @@ addBtn.onclick = function () {
 
 renderTasks();
 clearBtn.onclick = function () {
+
   if (confirm("Clear all tasks?")) {
+
     tasks = [];
+
     localStorage.removeItem("tasks");
+
     renderTasks();
+
   }
+
 };
+
