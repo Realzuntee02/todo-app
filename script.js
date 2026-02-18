@@ -1,6 +1,7 @@
 let taskInput = document.getElementById("taskInput");
 let addBtn = document.getElementById("addBtn");
 let taskList = document.getElementById("taskList");
+let clearBtn = document.getElementById("clearBtn");
 
 let tasks = JSON.parse(localStorage.getItem("tasks")) || [];
 
@@ -59,3 +60,10 @@ addBtn.onclick = function () {
 };
 
 renderTasks();
+clearBtn.onclick = function () {
+  if (confirm("Clear all tasks?")) {
+    tasks = [];
+    localStorage.removeItem("tasks");
+    renderTasks();
+  }
+};
