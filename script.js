@@ -11,22 +11,19 @@ function saveTasks() {
 function renderTasks() {
   taskList.innerHTML = "";
 for (let i = 0; i < tasks.length; i++) {
+
   let li = document.createElement("li");
-  li.textContent = tasks[i];
 
-  li.onclick = function () {
-    const isDone = li.dataset.done === "1";
+  // ✅ wrap text in a span
+  let textSpan = document.createElement("span");
+  textSpan.textContent = tasks[i];
+  textSpan.className = "taskText";
 
-    if (isDone) {
-      li.dataset.done = "0";
-      li.style.removeProperty("text-decoration");
-    } else {
-      li.dataset.done = "1";
-      li.style.setProperty("text-decoration", "line-through", "important");
-    }
-
-    console.log("clicked:", li.textContent, "| done?", li.dataset.done);
-  };
+  // ✅ toggle strike on the span (reliable)
+  textSpan.onclick = function () {
+  textSpan.classList.toggle("done");
+  console.log("class:", textSpan.className);
+};
 
   let deleteBtn = document.createElement("button");
   deleteBtn.textContent = "Delete";
@@ -39,6 +36,7 @@ for (let i = 0; i < tasks.length; i++) {
     renderTasks();
   };
 
+  li.appendChild(textSpan);
   li.appendChild(deleteBtn);
   taskList.appendChild(li);
 }
