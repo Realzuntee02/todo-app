@@ -1,0 +1,36 @@
+body {
+  font-family: Arial;
+  text-align: center;
+  margin-top: 80px;
+}
+
+.box {
+  width: 350px;
+  margin: auto;
+  padding: 20px;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+}
+
+input {
+  width: 70%;
+  padding: 10px;
+}
+
+button {
+  padding: 10px 15px;
+}
+
+li {
+  text-align: left;
+  margin: 10px 0;
+  display: flex;
+  justify-content: space-between;
+}
+
+.deleteBtn {
+  cursor: pointer;
+}
+.done {
+  text-decoration: line-through;
+}
